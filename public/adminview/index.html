@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>E - Yearbook Management System</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="../assets/img/mlndy logo.png" rel="icon">
+  <link href="../assets/img/mlndy logo.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Rk4kgbc4eEkdaD6S6ZjPhxnU9HWyqeqeUQ+Rz/z6z3qmWTfaTlqmKAzzPXZ+6u2oUlVbMZIuSJtQ9nH19p0x2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    #mobile-blocker {
+      display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+      body {
+        overflow: hidden;
+      }
+
+      #header,
+      #sidebar,
+      #createAccModal,
+      #content {
+        display: none;
+      }
+
+      #mobile-blocker {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding-top: 200px;
+        z-index: 2000;
+      }
+    }
+  </style>
+
+</head>
+
+<body id="body-content">
+
+  <header id="header" style="background-color: black;">
+    <div class="container d-flex align-items-center justify-content-between">
+      <button id="toggle-button">☰</button>
+      <h1 class="logo"><img src="../assets/img/mlndy logo.png"><a href="#" style="font-size: 75%;"> MALANDAY NATIONAL HIGHSCHOOL E-YEARBOOK</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
+            <div class="d-flex align-items-center">
+              <h3 class="mb-0 text-white">Yearbook Batch 2025</h3>
+              <button class="btn btn-warning ml-3">Publish</button>
+            </div>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <h1 class="logo"><a href="" style="font-size: 50%;">Admin</a></h1>
+    </div>
+  </header>
+
+  <div id="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Yearbook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Students</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Committee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
+  </div>
+
+  
+  <div id="content">
+    <main id="main">
+      <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box-shadow-full">
+                <div class="grid">
+                  <div>
+                    <div class="row">
+                      <div class="col-md-6">
+                      </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                      <button class="btn btn-light mx-2"><i class="fas fa-chevron-left"></i></button>
+                      <button class="btn btn-light mx-2"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                      <button class="btn btn-light mx-2">-</button>
+                      <span class="mx-2">50%</span>
+                      <button class="btn btn-light mx-2">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="mobile-blocker">
+    <h1 style="color: white;">Access Denied</h1>
+    <p>This page is only accessible in desktop and not on mobile devices.</p>
+  </div>
+
+  <script>
+    document.getElementById('toggle-button').addEventListener('click', function () {
+      var sidebar = document.getElementById('sidebar');
+      sidebar.style.display = (sidebar.style.display === 'none') ? 'block' : 'none';
+    });
+  </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -3,175 +3,287 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>E - Yearbook Management System</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="assets/img/mlndy logo.png" rel="icon">
-  <link href="assets/img/mlndy logo.png" rel="apple-touch-icon">
+  <link href="../assets/img/mlndy logo.png" rel="icon">
+  <link href="../assets/img/mlndy logo.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Rk4kgbc4eEkdaD6S6ZjPhxnU9HWyqeqeUQ+Rz/z6z3qmWTfaTlqmKAzzPXZ+6u2oUlVbMZIuSJtQ9nH19p0x2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    #mobile-blocker {
+      display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+      body {
+        overflow: hidden;
+      }
+
+      #header,
+      #sidebar,
+      #content {
+        display: none;
+      }
+
+      #mobile-blocker {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding-top: 200px;
+        z-index: 2000;
+      }
+    }
+
+    #action-buttons {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+
+    #action-buttons button {
+      margin: 0 10px;
+    }
+
+    #content {
+      position: relative;
+    }
+
+    .center-top-text {
+      position: absolute;
+      top: 20px; /* Adjust this value to control the vertical position */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333; /* Adjust color as needed */
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .zoom-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .zoom-button:hover {
+      background-color: #0056b3;
+    }
+
+    #zoom-control {
+      position: fixed;
+      bottom: 20px;
+      right: 80px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    #zoom-control button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    #zoom-control span {
+      font-size: 16px;
+      margin: 0 10px;
+    }
+
+    .publish-button {
+      background-color: yellow;
+      color: black;
+      border: none;
+      padding: 7px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 30px;
+    }
+
+    .publish-button:hover {
+      background-color: gold;
+    }
+  </style>
 </head>
 
-<body>
-  <header id="header" class="fixed-top">
+<body id="body-content">
+
+  <header id="header" style="background-color: black;">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><img src="assets/img/mlndy logo.png"><a href="index.html" style="font-size: 75%;">     MALANDAY NATIONAL HIGHSCHOOL E-YEARBOOK</a></h1>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link " href="login/index.html" >Login</a></li>
-          <li class="dropdown"><a href="#"><span>Socials</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="https://www.facebook.com/MNHSMarikinaCity">Facebook</a></li>
-              <li><a href="mailto:mnhs.marikina@deped.gov.ph">Mail</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+      <button id="toggle-button">☰</button>
+      <h1 class="logo"><img src="../assets/img/mlndy logo.png"><a href="#" style="font-size: 75%;"> MALANDAY NATIONAL HIGHSCHOOL E-YEARBOOK</a></h1>
+
+      <nav id="navbar" class="navbar d-flex">
+        <ul class="navbar-nav">
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
+      <div class="d-flex align-items-center">
+        <button class="publish-button">Publish</button>
+        <h1 class="logo">
+          <a href="" style="font-size: 65%;">
+            <img src="admin.png" alt="Admin Icon" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 1px;">
+            Admin
+          </a>
+        </h1>
+      </div>
     </div>
   </header>
 
-  <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
-    <div class="overlay-itro"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <h6 class="hero-title mb-4">Welcome to Malanday National High School Yearbook Gallery</h6>
-          <p class="hero-subtitle"><span class="typed" data-typed-items="Explore and relive the cherished moments of our journey together, Dive into the highlights celebrate our achievements and enjoy the memories we've created."></span></p>
-        </div>
-      </div>
-    </div>
+  <div id="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Yearbook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Students</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Committee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
   </div>
 
-
-  <main id="main">
-    <section id="about" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="grid">
-                <div>
-                  <img src="assets/img/testimonial-2.jpg" width="75%" alt="">
-                </div>
-                <div>
-                  <h2>Welcome Message from the Principal<br><br></h2>
-                  <p class="lead">
-                    Welcome to Malanday National High School, “THE HOME OF TECHNOPRENEURS” and the only public 
-                    secondary TECH-VOC school in the Division of Marikina City.  As  a secondary TECH-VOC school
-                    , we take pride of our TVE teachers who are NC Passers and TM Holders in different field of 
-                    specialization.  We envision our school to be a nurturing TECH-VOC school which prepares 
-                    students for productive life and for college education.  Thus, we are geared at preparing 
-                    our learners to face the rigors of college education and more importantly, ready to face the 
-                    actual challenges of the workplace.
-                  </p>
+  <div id="content">
+    <div class="center-top-text">
+      Yearbook Batch 2025
+    </div>
+    <main id="main">
+      <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box-shadow-full">
+                <div class="grid">
+                  <div></div>
+                  <div>
+                    <img id="yearbook-image" src="YEARBOOK GALLERY MAKER (4).png" alt="Yearbook" class="img-fluid">
+                  </div>                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
+  </div>
 
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/hero-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">Send Message Us</h5>
-                    </div>
-                    <div>
-                      <form action="/sendmail" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">Get in Touch</h5>
-                    </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        You can reach us through the following contact details:
-                      </p>
-                      <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span> Marikina, 1800 Metro Manila, Philippines</li>
-                        <li><span class="bi bi-phone"></span> 0945 276 8967</li>
-                        <li><span class="bi bi-envelope"></span> mnhs.marikina@deped.gov.ph</li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li><a href="https://www.facebook.com/MNHSMarikinaCity"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-                        <li><a href="mailto:mnhs.marikina@deped.gov.ph"><span class="ico-circle"><i class="bi bi-envelope"></i></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <div id="mobile-blocker">
+    <h1 style="color: white;">Access Denied</h1>
+    <p>This page is only accessible in desktop and not on mobile devices.</p>
+  </div>
 
+  <div id="action-buttons">
+    <button id="undo-button" class="btn btn-primary">Undo</button>
+    <button id="redo-button" class="btn btn-secondary">Redo</button>
+  </div>
 
+  <div id="zoom-control">
+    <button id="zoom-out">-</button>
+    <span id="zoom-percentage">100%</span>
+    <button id="zoom-in">+</button>
+  </div>
+
+  <div class="zoom-button" id="zoom-button">
+    <i class="fas fa-search-plus"></i>
+  </div>
 
   <script>
+    document.getElementById('toggle-button').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('retracted');
+      document.getElementById('content').classList.toggle('retracted');
+    });
 
-    </script>
-    
-  
+    document.getElementById('undo-button').addEventListener('click', function() {
+      // Add your undo logic here
+      alert('Undo button clicked');
+    });
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/js/main.js"></script>
+    document.getElementById('redo-button').addEventListener('click', function() {
+      // Add your redo logic here
+      alert('Redo button clicked');
+    });
+
+    let zoomLevel = 100;
+
+    function updateZoom() {
+      const img = document.getElementById('yearbook-image');
+      img.style.transform = `scale(${zoomLevel / 100})`;
+      document.getElementById('zoom-percentage').textContent = `${zoomLevel}%`;
+    }
+
+    document.getElementById('zoom-in').addEventListener('click', function() {
+      zoomLevel = Math.min(zoomLevel + 10, 200);
+      updateZoom();
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', function() {
+      zoomLevel = Math.max(zoomLevel - 10, 50);
+      updateZoom();
+    });
+
+    document.getElementById('zoom-button').addEventListener('click', function() {
+      const img = document.getElementById('yearbook-image');
+      img.style.transform = img.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+      img.style.transition = 'transform 0.3s ease';
+    });
+
+    updateZoom();
+  </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
 </body>
+
 </html>

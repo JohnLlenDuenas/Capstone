@@ -85,12 +85,84 @@
       width: 16px;
       height: 16px;
     }
+
+    
+    #sidebar {
+      position: fixed;
+      top: 60px; 
+      left: 0;
+      height: calc(100vh - 60px); 
+      width: 250px;
+      background-color: #000000;
+      color: white;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    #sidebar .nav-link {
+      color: white;
+    }
+
+    #sidebar .nav-link:hover {
+      background-color: #495057;
+    }
+
+    #sidebar .Dashboard {
+      width: 28px;
+      height: 28px;
+      margin-left: 70px;
+      transition: margin-right 5s;
+    }
+
+    #sidebar .Yearbook {
+      width: 28px;
+      height: 28px;
+      margin-left: 80px;
+      transition: margin-right 5s;
+    }
+
+    #sidebar .Students {
+      width: 28px;
+      height: 28px;
+      margin-left: 85px;
+      transition: margin-right 5s;
+    }
+
+    #sidebar .Committee {
+      width: 28px;
+      height: 28px;
+      margin-left: 68px;
+      transition: margin-right 5s;
+    }
+
+    #sidebar .Settings {
+      width: 28px;
+      height: 28px;
+      margin-left: 90px;
+      transition: margin-right 5s;
+    }
+
+    #content {
+      margin-left: 250px;
+      padding-top: 60px; 
+    }
+
+    
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      z-index: 10; 
+    }
   </style>
 
 </head>
 
 <body id="body-content">
 
+ 
   <header id="header" style="background-color: black;">
     <div class="container d-flex align-items-center justify-content-between">
       <button id="toggle-button">☰</button>
@@ -98,7 +170,7 @@
         <img src="../assets/img/mlndy logo.png">
         <a href="#" style="font-size: 75%;"> MALANDAY NATIONAL HIGHSCHOOL E-YEARBOOK</a>
       </h1>
-  
+
       <nav id="navbar" class="navbar">
         <ul class="d-flex align-items-center">
           <li>
@@ -118,28 +190,39 @@
       </h1>
     </div>
   </header>
-  
 
+  
   <div id="sidebar">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Dashboard</a>
+        <a class="nav-link active" href="#">Dashboard
+          <img src="dashboard.png" alt="Dashboard" class="Dashboard">
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Yearbook</a>
+        <a class="nav-link" href="#">Yearbook
+        <img src="Yearbook.png" alt="Yearbook" class="Yearbook">
+      </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Students</a>
+        <a class="nav-link" href="#">Students
+        <img src="student.png" alt="Dashboard" class="Students">
+      </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Committee</a>
+        <a class="nav-link" href="#">Committee
+        <img src="Committee.png" alt="Dashboard" class="Committee">
+      </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
+        <a class="nav-link" href="#">Settings
+        <img src="settings.png" alt="Dashboard" class="Settings">
+      </a>
       </li>
     </ul>
   </div>
 
+  
   <div id="content">
     <main id="main">
       <section id="about" class="about-mf sect-pt4 route">
@@ -155,6 +238,8 @@
 
                     <h4>Pending Yearbooks</h4>
                     <img src="YEARBOOK GALLERY MAKER (4).png" alt="Pending Yearbooks" width="300" height="200">
+
+                    
                   </div>
                 </div>
               </div>
@@ -165,13 +250,14 @@
     </main>
   </div>
 
+  
   <div id="mobile-blocker">
     <h1 style="color: white;">Access Denied</h1>
     <p>This page is only accessible in desktop and not on mobile devices.</p>
   </div>
 
   <script>
-    document.getElementById('toggle-button').addEventListener('click', function () {
+    document.getElementById('toggle-button').addEventListener('click', function() {
       document.getElementById('sidebar').classList.toggle('retracted');
       document.getElementById('content').classList.toggle('retracted');
     });

@@ -1,3 +1,27 @@
+.lead {
+  text-align: justify;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left; 
+  }
+
+  .grid img {
+    width: 100%; 
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+  }
+}
+
 body {
   background-color: #f5f5f5;
   color: #4e4e4e;

@@ -24,36 +24,14 @@
       display: none;
     }
 
-    @media only screen and (max-width: 768px) {
-      body {
-        overflow: hidden;
-      }
+    
 
-      #header,
-      #sidebar,
-      #content {
-        display: none;
-      }
-
-      #mobile-blocker {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        color: rgb(255, 255, 255);
-        text-align: center;
-        padding-top: 200px;
-        z-index: 2000;
-      }
-    }
+    /*pc view*/
 
     #action-buttons {
       position: fixed;
-      bottom: 10px;
-      left: 50%;
+      bottom: 20px;
+      left: 20%;
       transform: translateX(-50%);
       z-index: 1000;
     }
@@ -112,6 +90,21 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
+
+    @media only screen and (max-width: 768px) {
+      #zoom-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+}
 
     #zoom-control button {
       background: none;
@@ -190,9 +183,32 @@
       z-index: 1000;
     }
 
+    @media only screen and (max-width: 768px) {
+      #sidebar {
+      position: fixed;
+      top: 80px; 
+      left: 0;
+      height: calc(100vh - 60px); 
+      width: 150px;
+      background-color: #000000;
+      color: white;
+      overflow-y: auto;
+      z-index: 2;
+    }
+}
+
+
+
     #sidebar .nav-link {
       color: white;
     }
+
+    @media only screen and (max-width: 768px) {
+      #sidebar .nav-link {
+      font-size: 15px;
+      margin-bottom: -40px;
+    }
+}
 
     #sidebar .nav-link:hover {
       background-color: #495057;
@@ -211,6 +227,17 @@
       margin-left: 80px;
       transition: margin-right 5s;
     }
+
+    @media only screen and (max-width: 768px) {
+      #sidebar .Yearbook {
+      width: 25px;
+      height: 25px;
+      margin-left: 70px;
+      position: relative;
+      top: -21px; 
+      transition: margin-right 5s;
+    }
+}
 
     #sidebar .Students {
       width: 28px;
@@ -232,6 +259,17 @@
       margin-left: 90px;
       transition: margin-right 5s;
     }
+
+    @media only screen and (max-width: 768px) {
+      #sidebar .Settings {
+      width: 25px;
+      height: 25px;
+      margin-left: 68px;
+      position: relative;
+      top: -23px; 
+      transition: margin-right 5s;
+    }
+}
 
     #content {
       margin-left: 250px;
@@ -352,8 +390,56 @@
     background-color: #ccc;
 }
 
+.logo a {
+  font-size: 75%; 
+  text-decoration: none;
+  color: inherit;
+}
 
-    
+.logo img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo a {
+    font-size: 30%; 
+    position: relative;
+      top: -3px;
+    margin-left: -15px;
+  }
+}
+
+.admin-logo a {
+  font-size: 50%; /* Adjust size as necessary */
+  text-decoration: none;
+  color: white; /* To inherit color from parent, or specify a color */
+}
+
+.admin-logo img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 1px;
+  }
+
+@media only screen and (max-width: 768px) {
+  .admin-logo a {
+    font-size: 30%; /* Smaller font size for mobile */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .admin-logo img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 1px;
+  }
+}
+   
   </style>
 </head>
 
@@ -362,20 +448,24 @@
   <header id="header" style="background-color: black;">
     <div class="container d-flex align-items-center justify-content-between">
       <button id="toggle-button">☰</button>
-      <h1 class="logo"><img src="../assets/img/mlndy logo.png"><a href="#" style="font-size: 75%;"> MALANDAY NATIONAL HIGHSCHOOL E-YEARBOOK</a></h1>
-
-      <nav id="navbar" class="navbar d-flex">
+      <h1 class="logo">
+        <img src="../assets/img/mlndy logo.png" alt="Malanday National High School Logo">
+        <a href="#">MALANDAY NATIONAL HIGH SCHOOL E-YEARBOOK</a>
+    </h1>
+    
+    <nav id="navbar" class="navbar d-flex">
         <ul class="navbar-nav">
-          
+            
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <div class="d-flex align-items-center">
-        <h1 class="logo">
-          <a href="" style="font-size: 65%;">
-            <img src="../assets/img/admin.png" alt="Admin Icon" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 1px;">
-            Student
-          </a>
+    </nav>
+    
+    <div class="d-flex align-items-center">
+        <h1 class="admin-logo">
+            <a href="">
+                <img src="../assets/img/admin.png" alt="Admin Icon">
+                Student
+            </a>
         </h1>
       </div>
     </div>

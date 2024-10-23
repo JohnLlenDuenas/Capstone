@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
 });
 
 
-const uri = "mongodb://localhost:27017/EYBMS_DB";
+const uri = "mongodb+srv://johnllentv:johnllentv@cluster0.pgaelxg.mongodb.net/EYMS_DB?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(uri).then(() => {
   console.log('Connected to MongoDB');
@@ -686,15 +686,15 @@ app.post('/loginroute', async (req, res) => {
           redirectUrl = '/student/yearbooks';
           action = 'Logged in as student';
         }
-        yearbooks();
+        
       } else if (user.accountType === 'admin') {
         redirectUrl = '/admin/yearbooks';
         action = 'Logged in as admin';
-        yearbooks();
+        
       } else if (user.accountType === 'committee') {
         redirectUrl = '/comittee/yearbooks';
         action = 'Logged in as committee';
-        yearbooks();
+        
       }
 
       // Log activity and return success
@@ -779,7 +779,7 @@ app.get('/comittee', checkAuthenticated, ensureRole(['admin']), async (req, res)
 //admin part
 app.get('/admin/yearbooks', checkAuthenticated, ensureRole(['admin']), async (req, res) => {
   try {
-    yearbooks();
+    
     const user = await Student.findById(req.session.user);
     const mostViewedYearbooks = await Yearbook.find({ status: 'published' })
       .sort({ views: -1 }) // Sort by views in descending order

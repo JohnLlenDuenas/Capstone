@@ -24,10 +24,6 @@
       display: none;
     }
 
-    
-
-    /*pc view*/
-
     #action-buttons {
       position: fixed;
       bottom: 20px;
@@ -196,9 +192,6 @@
       z-index: 2;
     }
 }
-
-
-
     #sidebar .nav-link {
       color: white;
     }
@@ -275,6 +268,14 @@
       margin-left: 250px;
       padding-top: 60px; 
     }
+
+    @media only screen and (max-width: 768px) {
+      #content {
+      margin-left: 150px;
+      padding-top: 30px; 
+      padding-bottom: 30px;
+    }
+}
 
     
     #header {
@@ -413,9 +414,9 @@
 }
 
 .admin-logo a {
-  font-size: 50%; /* Adjust size as necessary */
+  font-size: 50%; 
   text-decoration: none;
-  color: white; /* To inherit color from parent, or specify a color */
+  color: white; 
 }
 
 .admin-logo img {
@@ -427,7 +428,7 @@
 
 @media only screen and (max-width: 768px) {
   .admin-logo a {
-    font-size: 30%; /* Smaller font size for mobile */
+    font-size: 30%; 
   }
 }
 

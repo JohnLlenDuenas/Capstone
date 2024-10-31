@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
 });
 
 
-const uri = "mongodb+srv://johnllentv:johnllentv@cluster0.pgaelxg.mongodb.net/EYMS_DB?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://johnllentv:johnllentv@cluster0.pgaelxg.mongodb.net/Diaries?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(uri).then(() => {
   console.log('Connected to MongoDB');

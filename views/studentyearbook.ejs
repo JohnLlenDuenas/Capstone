@@ -9,6 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+ 
   <link href="../assets/img/mlndy logo.png" rel="icon">
   <link href="../assets/img/mlndy logo.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Rk4kgbc4eEkdaD6S6ZjPhxnU9HWyqeqeUQ+Rz/z6z3qmWTfaTlqmKAzzPXZ+6u2oUlVbMZIuSJtQ9nH19p0x2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,9 +17,20 @@
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">'
+  
+  <link href="../public/assets/img/mlndy logo.png" rel="icon">
+  <link href="../public/assets/img/mlndy logo.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Rk4kgbc4eEkdaD6S6ZjPhxnU9HWyqeqeUQ+Rz/z6z3qmWTfaTlqmKAzzPXZ+6u2oUlVbMZIuSJtQ9nH19p0x2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="../public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../public/assets/css/style.css" rel="stylesheet">
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>	
+
   <style>
     #mobile-blocker {
       display: none;
@@ -27,14 +39,85 @@
     #action-buttons {
       position: fixed;
       bottom: 20px;
-      left: 20%;
+      left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
     }
 
+    @media only screen and (max-width: 768px) {
+      #action-buttons {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+  #action-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+  #action-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+  #action-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 25%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+}
     #action-buttons button {
       margin: 0 10px;
     }
+
+  @media only screen and (max-width: 768px) {
+  #action-buttons button {
+      margin: 3px;
+      padding: 10px 15px;  
+      font-size: 0.85rem;
+    }
+}
+
+  @media only screen and (max-width: 425px) {
+  #action-buttons button {
+      margin: 3px;
+      padding: 7px 12px;  
+      font-size: 0.75rem;
+    }
+}
+
+  @media only screen and (max-width: 375px) {
+  #action-buttons button {
+      margin: 3px;
+      padding: 7px 12px;  
+      font-size: 0.75rem;
+    }
+}
+
+  @media only screen and (max-width: 320px) {
+  #action-buttons button {
+      margin: 3px;
+      padding: 5px 10px;  
+      font-size: 0.75rem;
+    }
+}
 
     #content {
       position: relative;
@@ -102,6 +185,51 @@
     }
 }
 
+@media only screen and (max-width: 425px) {
+  #zoom-control {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      padding: 3px 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+  #zoom-control {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      padding: 3px 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+  #zoom-control {
+      position: fixed;
+      bottom: 26px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 5px;
+      padding: 0px 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+}
+
     #zoom-control button {
       background: none;
       border: none;
@@ -114,6 +242,27 @@
       font-size: 16px;
       margin: 0 10px;
     }
+
+    @media only screen and (max-width: 425px) {
+      #zoom-control span {
+      font-size: 14px;
+      margin: 0 10px;
+    }
+}
+
+    @media only screen and (max-width: 375px) {
+      #zoom-control span {
+      font-size: 14px;
+      margin: 0 10px;
+    }
+}
+
+    @media only screen and (max-width: 320px) {
+      #zoom-control span {
+      font-size: 14px;
+      margin: 0 10px;
+    }
+}
 
     .share-button {
       background-color: yellow;
@@ -179,7 +328,7 @@
       z-index: 1000;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 425px) {
       #sidebar {
       position: fixed;
       top: 80px; 
@@ -196,7 +345,7 @@
       color: white;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 425px) {
       #sidebar .nav-link {
       font-size: 15px;
       margin-bottom: -40px;
@@ -221,7 +370,7 @@
       transition: margin-right 5s;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 425px) {
       #sidebar .Yearbook {
       width: 25px;
       height: 25px;
@@ -253,7 +402,7 @@
       transition: margin-right 5s;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 425px) {
       #sidebar .Settings {
       width: 25px;
       height: 25px;
@@ -265,20 +414,21 @@
 }
 
     #content {
-      margin-left: 250px;
-      padding-top: 60px; 
+      margin-left: 150px;
+      padding-top: 20px;
+      padding-left: 100px; 
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 425px) {
       #content {
       margin-left: 150px;
-      padding-top: 30px; 
+      padding-top: 10px; 
       padding-bottom: 30px;
+      padding-left: 0;
     }
 }
-
     
-    #header {
+#header {
       position: fixed;
       top: 0;
       left: 0;
@@ -406,11 +556,78 @@
 
 @media only screen and (max-width: 768px) {
   .logo a {
-    font-size: 30%; 
+    font-size: 1.10rem; 
     position: relative;
-      top: -3px;
-    margin-left: -15px;
+      top: 1px;
+    margin-left: -40px;
   }
+
+  .logo img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 7px;
+  position: relative;
+      left: -27px;
+      top: 2px;
+}
+}
+
+@media only screen and (max-width: 425px) {
+  .logo a {
+    font-size: 0.75rem; 
+    position: relative;
+      top: -5px;
+    margin-left: -40px;
+  }
+
+  .logo img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+  position: relative;
+      left: -27px;
+      top: 2px;
+}
+}
+
+@media only screen and (max-width: 375px) {
+  .logo a {
+    font-size: 0.65rem; 
+    position: relative;
+      top: -5px;
+    margin-left: -40px;
+  }
+
+  .logo img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+  position: relative;
+      left: -27px;
+      top: 2px;
+}
+}
+
+@media only screen and (max-width: 320px) {
+  .logo a {
+    font-size: 0.55rem; 
+    position: relative;
+      top: -5px;
+    margin-left: -32px;
+  }
+
+  .logo img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+  position: relative;
+      left: -16px;
+      top: 2px;
+}
 }
 
 .admin-logo a {
@@ -428,17 +645,116 @@
 
 @media only screen and (max-width: 768px) {
   .admin-logo a {
-    font-size: 30%; 
+    font-size: 1.10rem;
+    position: relative;
+    left: -10px;
+        bottom: 4px;
+  }
+
+  .admin-logo img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 0px;
+    position: relative;
+        bottom: 1px;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
+  .admin-logo a {
+    font-size: 0.80rem;
+    position: relative;
+    left: -10px;
+        bottom: 4px;
+  }
+
   .admin-logo img {
     width: 20px;
     height: 20px;
     vertical-align: middle;
-    margin-right: 1px;
+    margin-right: 0px;
+    position: relative;
+        bottom: 1px;
   }
+}
+
+@media only screen and (max-width: 375px) {
+  .admin-logo a {
+    font-size: 0.67rem;
+    position: relative;
+    left: -10px;
+        bottom: 4px;
+  }
+
+  .admin-logo img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 0px;
+    position: relative;
+        bottom: 1px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .admin-logo a {
+    font-size: 0.67rem;
+    position: relative;
+        left: 3px;
+        bottom: 4px;
+  }
+
+  .admin-logo img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: -1px;
+    position: relative;
+        bottom: 1px;
+  }
+}
+
+.logo .yearbook-subtitle {
+    font-size: 15px; 
+    text-align: center;
+    color: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo .yearbook-subtitle {
+        font-size: 1rem;
+        position: relative;
+        top: -5px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .logo .yearbook-subtitle {
+        font-size: 0.70rem;
+        position: relative;
+        top: -5px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .logo .yearbook-subtitle {
+        font-size: 0.60rem;
+        position: relative;
+        top: -5px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .logo .yearbook-subtitle {
+        font-size: 0.50rem;
+        position: relative;
+        top: -5px;
+        margin-left: 18px;
+    }
 }
    
   </style>
@@ -451,15 +767,11 @@
       <button id="toggle-button">☰</button>
       <h1 class="logo">
         <img src="../assets/img/mlndy logo.png" alt="Malanday National High School Logo">
-        <a href="#">MALANDAY NATIONAL HIGH SCHOOL E-YEARBOOK</a>
+        <a href="#">
+            <span>MALANDAY NATIONAL HIGH SCHOOL</span><br>
+            <span class="yearbook-subtitle" style="display: block;">E-YEARBOOK</span>
+        </a>
     </h1>
-    
-    <nav id="navbar" class="navbar d-flex">
-        <ul class="navbar-nav">
-            
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
     
     <div class="d-flex align-items-center">
         <h1 class="admin-logo">
@@ -564,6 +876,7 @@
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets/vendor/typed.js/typed.min.js"></script>
   <script src="../assets/js/main.js"></script>
+  
 
 </body>
 
